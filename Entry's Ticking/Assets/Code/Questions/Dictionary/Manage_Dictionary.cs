@@ -6,6 +6,7 @@ public struct wordEquivalence
 {
     public string originalWord;
     public string translatedWord;
+    public int pageNumber;
 }
 
 public class Manage_Dictionary : MonoBehaviour
@@ -46,6 +47,7 @@ public class Manage_Dictionary : MonoBehaviour
 
             newWord.originalWord = originalWordsListCopy[i];
             newWord.translatedWord = translatedWordsListCopy[randomIndex];
+            newWord.pageNumber = 1; // Default page number, is modified later when the word is added to the available dictionary
 
             translatedWordsListCopy.RemoveAt(randomIndex); // Remove the used translated word to avoid duplicates
 
@@ -56,6 +58,7 @@ public class Manage_Dictionary : MonoBehaviour
 
         timeKey.originalWord = "Key";
         timeKey.translatedWord = "Time";
+        timeKey.pageNumber = 1;
 
         fullDictionary.Add(timeKey);
 
