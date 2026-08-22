@@ -112,7 +112,7 @@ public class Manage_Question : MonoBehaviour
             if (possibleNote != note)
                 possibleNote.GetComponent<Image>().color = new Color32(192, 184, 172, 255);
         }
-        note.GetComponent<Image>().color = Color.white;
+        note.GetComponent<Image>().color = Color.grey;
         selectedNotes = note;
     }
 
@@ -123,6 +123,8 @@ public class Manage_Question : MonoBehaviour
             if (selectedNotes != null)
             {
                 TMPro.TextMeshProUGUI textComponent = selectedNotes.transform.Find("Notes Text").GetComponent<TMPro.TextMeshProUGUI>();
+                if (textComponent.text.Length >= 74 && c != '\b') // Limit to 74 characters, allow backspace
+                    continue;
 
                 if (c == '\b') // Backspace
                 {
@@ -155,6 +157,8 @@ public class Manage_Question : MonoBehaviour
                 if (rectTransform.rect.Contains(localMousePosition))
                 {
                     string selectedAnswer = DecryptSentence(answerButton.transform.Find("Text").GetComponent<TMPro.TextMeshProUGUI>().text);
+                    
+                    selectedAnswer = selectedAnswer.TrimEnd('.'); // Remove punctuation for comparison
 
                     if (selectedAnswer.ToLower() == correctAnswer.ToLower())
                         Debug.Log("Correct Answer!");
@@ -183,11 +187,14 @@ public class Manage_Question : MonoBehaviour
 
         if (question)
             newSentence += " ?";
+        else
+            newSentence += ".";
         return newSentence;
     }
 
     public string DecryptSentence(string sentence)
     {
+        sentence = sentence.TrimEnd('.');
         string[] words = sentence.Split(' ');
         string newSentence = "";
 
@@ -199,7 +206,7 @@ public class Manage_Question : MonoBehaviour
             if (i < words.Length - 1)
                 newSentence += " ";
         }
-
+    
         return newSentence;
     }
 }
