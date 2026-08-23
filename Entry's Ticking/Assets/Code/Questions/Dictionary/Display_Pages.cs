@@ -17,6 +17,11 @@ public class Display_Pages : MonoBehaviour
 
     public void displayNextPage(string pageToDisplay)
     {
+        if (Manage_Question.waitingForAnswer)
+            return;
+            
+        Manage_Sounds.PlaySFX("Page Flip", gameObject, true);
+
         int currentPageIndex = transform.GetSiblingIndex();
 
         if (pageToDisplay == "Left") 
@@ -33,6 +38,10 @@ public class Display_Pages : MonoBehaviour
 
     public void displayPreviousPage(string pageToDisplay)
     {
+        if (Manage_Question.waitingForAnswer)
+            return;
+        Manage_Sounds.PlaySFX("Page Flip", gameObject, true);
+
         int currentPageIndex = transform.GetSiblingIndex();
 
         if (pageToDisplay == "Left") 

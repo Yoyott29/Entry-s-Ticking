@@ -13,6 +13,103 @@ MonoBehaviour:
   m_Name: Question List
   m_EditorClassIdentifier: Assembly-CSharp::WordList
   words:
-  - How are you ?
-  - 'Do you like lions ? '
-  - Do you have the Key ?
+  - Can you defeat the dragon
+  - Can you defeat the ghost
+  - Can you defeat the goblin
+  - Can you defeat the orc
+  - Can you defeat the skeleton
+  - Can you defeat the spider
+  - Can you defeat the troll
+  - Can you defeat the witch
+  - Can you defeat the wizard
+  - Can you defeat the zombie
+  - Can you open the cage
+  - Can you open the chest
+  - Can you open the door
+  - Can you open the gate
+  - Can you open the vault
+  - Do you fear the dragon
+  - Do you fear the ghost
+  - Do you fear the goblin
+  - Do you fear the orc
+  - Do you fear the skeleton
+  - Do you fear the spider
+  - Do you fear the troll
+  - Do you fear the witch
+  - Do you fear the wizard
+  - Do you fear the zombie
+  - Do you have a axe
+  - Do you have a bow
+  - Do you have a gold
+  - Do you have a key
+  - Do you have a map
+  - Do you have a potion
+  - Do you have a scroll
+  - Do you have a shield
+  - Do you have a sword
+  - Do you have a torch
+  - Fight or flee
+  - How many enemies are left
+  - How many keys are left
+  - How many lives are left
+  - How many potions are left
+  - How many torches are left
+  - How strong is the boss
+  - How strong is the dragon
+  - How strong is the goblin
+  - How strong is the orc
+  - How strong is the skeleton
+  - How strong is the troll
+  - How strong is the wizard
+  - How strong is the zombie
+  - Is the cage locked
+  - Is the chest locked
+  - Is the door locked
+  - Is the dragon awake
+  - Is the gate locked
+  - Is the ghost awake
+  - Is the goblin awake
+  - Is the orc awake
+  - Is the skeleton awake
+  - Is the spider awake
+  - Is the troll awake
+  - Is the vault locked
+  - Is the witch awake
+  - Is the wizard awake
+  - Is the zombie awake
+  - Is your axe sharp
+  - Is your health full
+  - Is your mana full
+  - Is your potion full
+  - Is your stamina full
+  - Is your sword sharp
+  - Key or map
+  - Left or right
+  - Push or pull
+  - Sword or shield
+  - What color is the dragon
+  - What color is the gold
+  - What color is the potion
+  - What color is the sword
+  - What color is the torch
+  - What is your class
+  - What is your level
+  - What is your name
+  - What is your quest
+  - What is your weapon
+  - Where is the hidden bow
+  - Where is the hidden gold
+  - Where is the hidden key
+  - Where is the hidden map
+  - Where is the hidden potion
+  - Where is the hidden torch
+  - Who guards the gate
+  - Who guards the throne
+  - Who guards the tomb
+  - Who guards the tower
+  - Who guards the treasure
+  - Why is the cage locked
+  - Why is the chest locked
+  - Why is the door locked
+  - Why is the gate locked
+  - Why is the vault locked

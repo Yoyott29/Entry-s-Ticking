@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Collections;
+
 public class Manage_Question : MonoBehaviour
 {
     public WordList questionsList;
@@ -10,12 +12,16 @@ public class Manage_Question : MonoBehaviour
     private GameObject questionGO;
     private GameObject answersGO;
 
+    private GameObject deathFadeRectangle;
+    private GameObject deathMenuGO;
+
     private List<GameObject> notes;
     private List<GameObject> answerButtons;
 
     private string correctAnswer;
     private GameObject selectedNotes;
     private int answerButtonNumber = 3;
+    public static bool waitingForAnswer = false;
 
 
 
@@ -25,6 +31,9 @@ public class Manage_Question : MonoBehaviour
         answersGO = GameObject.Find("Answers");
         notes = new List<GameObject>();
         answerButtons = new List<GameObject>();
+        deathFadeRectangle = GameObject.Find("Death Fade Rectangle");
+        deathMenuGO = GameObject.Find("Death Menu");
+        deathMenuGO.SetActive(false);
 
         GameObject questionNotes = GameObject.Find("Question Notes");
 
@@ -147,7 +156,7 @@ public class Manage_Question : MonoBehaviour
 
     public void CheckAnswerClick()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !waitingForAnswer)
         {
             for (int i = 0; i < answerButtons.Count; i++)
             {
@@ -160,13 +169,7 @@ public class Manage_Question : MonoBehaviour
 
                     selectedAnswer = selectedAnswer.TrimEnd('.'); // Remove punctuation for comparison
 
-                    if (selectedAnswer.ToLower() == correctAnswer.ToLower()) {
-                        Debug.Log("Correct Answer!");
-                        Manage_Dictionary.questionAnsweredCorrectly = true; // Set the static boolean to true if the answer is correct
-                    }
-                    else
-                        Debug.Log("Wrong Answer!");
-                    break;
+                    StartCoroutine(AnswerResultCoroutine(selectedAnswer.ToLower() == correctAnswer.ToLower(), answerButton));
                 }
             }
         }
@@ -210,4 +213,57 @@ public class Manage_Question : MonoBehaviour
     
         return newSentence;
     }
+
+    IEnumerator AnswerResultCoroutine(bool isCorrect, GameObject answerButton)
+    {
+        waitingForAnswer = true;
+
+        Manage_Sounds.PlaySFX("Question Timer", gameObject, false);
+
+        yield return new WaitForSeconds(2f);
+
+        if (isCorrect)
+            Manage_Sounds.PlaySFX("Correct Answer", gameObject, false);
+        else
+            Manage_Sounds.PlaySFX("Wrong Answer", gameObject, false);
+
+        for (int i = 0; i < answerButtons.Count; i++)
+        {
+            GameObject button = answerButtons[i];
+            string buttonAnswer = DecryptSentence(button.transform.Find("Text").GetComponent<TMPro.TextMeshProUGUI>().text).TrimEnd('.');
+
+            if (buttonAnswer.ToLower() == correctAnswer.ToLower())
+                button.GetComponent<Image>().color = new Color32(96, 152, 65, 255); // Green for correct answer
+            else if (button == answerButton)
+                button.GetComponent<Image>().color = new Color32(150, 75, 65, 255); // Red for incorrect answer
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        if (isCorrect)
+            Manage_Dictionary.questionAnsweredCorrectly = true;
+        else
+            yield return StartCoroutine(LaunchDeath());
+
+        waitingForAnswer = false;
+    }
+
+    IEnumerator LaunchDeath()
+    {
+        int alpha = 0;
+
+        Manage_Sounds.PlaySFX("Death", gameObject, false);
+
+        while (alpha < 255)
+        {
+            alpha += 5;
+            deathFadeRectangle.GetComponent<Image>().color = new Color32(0, 0, 0, (byte)alpha);
+            yield return new WaitForSeconds(0.01f);
+        }
+        deathMenuGO.SetActive(true);
+        
+        yield return new WaitForSeconds(1f);
+
+    }
+
 }

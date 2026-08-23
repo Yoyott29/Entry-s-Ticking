@@ -13,8 +13,103 @@ MonoBehaviour:
   m_Name: Answer List
   m_EditorClassIdentifier: Assembly-CSharp::WordList
   words:
-  - I am ok
-  - I love lions
-  - I have the key
-  - I am lions
-  - Lions are key
+  - Yes I can defeat the dragon
+  - Yes I can defeat the ghost
+  - Yes I can defeat the goblin
+  - Yes I can defeat the orc
+  - Yes I can defeat the skeleton
+  - Yes I can defeat the spider
+  - Yes I can defeat the troll
+  - Yes I can defeat the witch
+  - Yes I can defeat the wizard
+  - Yes I can defeat the zombie
+  - Yes I can open the cage
+  - Yes I can open the chest
+  - Yes I can open the door
+  - Yes I can open the gate
+  - Yes I can open the vault
+  - Yes the dragon is scary
+  - Yes the ghost is scary
+  - Yes the goblin is scary
+  - Yes the orc is scary
+  - Yes the skeleton is scary
+  - Yes the spider is scary
+  - Yes the troll is scary
+  - Yes the witch is scary
+  - Yes the wizard is scary
+  - Yes the zombie is scary
+  - Yes I have the axe
+  - Yes I have the bow
+  - Yes I have the gold
+  - Yes I have the key
+  - Yes I have the map
+  - Yes I have the potion
+  - Yes I have the scroll
+  - Yes I have the shield
+  - Yes I have the sword
+  - Yes I have the torch
+  - Fight
+  - Three enemies remain
+  - Three keys remain
+  - Three lives remain
+  - Three potions remain
+  - Three torches remain
+  - The boss is very strong
+  - The dragon is very strong
+  - The goblin is very strong
+  - The orc is very strong
+  - The skeleton is very strong
+  - The troll is very strong
+  - The wizard is very strong
+  - The zombie is very strong
+  - Yes the cage is locked
+  - Yes the chest is locked
+  - Yes the door is locked
+  - Yes the dragon is awake
+  - Yes the gate is locked
+  - Yes the ghost is awake
+  - Yes the goblin is awake
+  - Yes the orc is awake
+  - Yes the skeleton is awake
+  - Yes the spider is awake
+  - Yes the troll is awake
+  - Yes the vault is locked
+  - Yes the witch is awake
+  - Yes the wizard is awake
+  - Yes the zombie is awake
+  - Yes the axe is sharp
+  - Yes the health is full
+  - Yes the mana is full
+  - Yes the potion is full
+  - Yes the stamina is full
+  - Yes the sword is sharp
+  - Key
+  - Left
+  - Push
+  - Sword
+  - The dragon is red
+  - The gold is gold
+  - The potion is blue
+  - The sword is silver
+  - The torch is orange
+  - My class is warrior
+  - My level is three
+  - My name is Aric
+  - My quest is the treasure
+  - My weapon is the sword
+  - Inside the cage
+  - Behind the door
+  - Inside the tower
+  - Under the chest
+  - Inside the vault
+  - Behind the gate
+  - The troll guards the gate
+  - The witch guards the throne
+  - The ghost guards the tomb
+  - The dragon guards the tower
+  - The orc guards the treasure
+  - To keep the cage locked
+  - To keep the chest locked
+  - To keep the door locked
+  - To keep the gate locked
+  - To keep the vault locked
