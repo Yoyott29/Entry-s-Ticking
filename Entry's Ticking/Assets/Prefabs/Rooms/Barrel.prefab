@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3013449882387539393}
   - component: {fileID: 5038050910853683871}
   - component: {fileID: 8310989458280643494}
-  - component: {fileID: 7721608480725861720}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -115,22 +114,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7721608480725861720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2777586131848281106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 0, y: 0, z: 0}
-  animator: {fileID: 8310989458280643494}
-  breakTrigger: Break
-  residueDuration: 2
 --- !u!1 &6395848072325038127
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 0, y: 0, z: 0}
+  tilePosition: {x: 10, y: 10, z: 0}
   animator: {fileID: 6417729465130149760}
   breakTrigger: Break
   residueDuration: 2

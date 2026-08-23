@@ -8,6 +8,8 @@ public class InputRecorder : MonoBehaviour
     float timer;
     public int maxMoves = 15;
 
+    private GameObject inputSoundObject;
+
     static readonly Dictionary<KeyCode, Vector2Int> Keymap = new()
     {
         { KeyCode.W, Vector2Int.up },
@@ -15,6 +17,12 @@ public class InputRecorder : MonoBehaviour
         { KeyCode.A, Vector2Int.left },
         { KeyCode.D, Vector2Int.right }
     };
+
+
+    void Start()
+    {
+        inputSoundObject = gameObject.transform.Find("Input Sound").gameObject;
+    }
 
     public void BeginRecording(float duration)
     {
@@ -29,8 +37,10 @@ public class InputRecorder : MonoBehaviour
             return;
 
         foreach(var keyValue in Keymap)
-            if (Input.GetKeyDown(keyValue.Key) && Moves.Count < maxMoves)
+            if (Input.GetKeyDown(keyValue.Key) && Moves.Count < maxMoves) {
+                Manage_Sounds.PlaySFX("Input", inputSoundObject);
                 Moves.Add(QueuedAction.MoveAction(keyValue.Value));
+            }
 
         if (Input.GetKeyDown(KeyCode.Space) && Moves.Count < maxMoves)
             Moves.Add(QueuedAction.AttackAction());

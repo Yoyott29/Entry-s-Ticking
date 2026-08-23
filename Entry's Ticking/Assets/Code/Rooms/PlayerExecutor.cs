@@ -23,11 +23,13 @@ public class PlayerExecutor : MonoBehaviour
     public event Action<int> OnMoveExecuted;
 
     private Animator playerAnimator;
+    private GameObject actionSoundObject;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerAnimator = GetComponent<Animator>();
+        actionSoundObject = gameObject.transform.Find("Action Sound").gameObject;
     }
 
     public void PlacePlayerAt(RoomData room, Vector3Int tile)
@@ -83,11 +85,13 @@ public class PlayerExecutor : MonoBehaviour
             } else if (action.type == ActionType.Attack)
             {
                 playerAnimator.SetBool("Swinging", true);
+                Manage_Sounds.PlaySFX("Sword Swing", actionSoundObject);
                 pauseBetweenMoves = 1.0f;
                 Vector3Int target = currentTile + new Vector3Int(facingDirection.x, facingDirection.y, 0);
 
                 if (barrels.TryGetValue(target, out Barrel barrel)) {
                     barrel.Break();
+                    Manage_Sounds.PlaySFX("Wood Breaking", actionSoundObject);
                     barrels.Remove(target);
                 }
             }
@@ -96,6 +100,11 @@ public class PlayerExecutor : MonoBehaviour
             playerAnimator.SetBool("Swinging", false);
         }
         reachedExit = currentTile == room.exitTile;
+        if (reachedExit) {
+            Manage_Sounds.PlaySFX("Door", actionSoundObject);
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return null;
     }
 
     IEnumerator PlayerFall()
@@ -121,18 +130,23 @@ public class PlayerExecutor : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Key")) {
+            Manage_Sounds.PlaySFX("Collect Key", actionSoundObject);
             hasKey = true;
             Destroy(other.gameObject);
         }
     }
 
     bool isWalkable(Vector3Int tile) {
+        
+        if (room.collisionTilemap.HasTile(tile) || barrels.ContainsKey(tile))
+            Manage_Sounds.StopSFX(gameObject);
         return !room.collisionTilemap.HasTile(tile) && !barrels.ContainsKey(tile);
     }
 
     IEnumerator MoveTo(Vector3Int target)
     {
         playerAnimator.SetBool("Walking", true);
+        Manage_Sounds.PlaySFX("Footsteps", gameObject, true);
 
         Vector3 start = transform.position;
         Vector3 end = room.collisionTilemap.GetCellCenterWorld(target);
