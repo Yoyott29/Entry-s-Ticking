@@ -1545,7 +1545,10 @@ MonoBehaviour:
   spawnTile: {x: -3, y: -3, z: 0}
   exitTile: {x: -1, y: 3, z: 0}
   collisionTilemap: {fileID: 1806343563900481990}
-  wordSlots: []
+  wordSlots:
+  - {fileID: 355284605128837286}
+  - {fileID: 8927128604876234291}
+  - {fileID: 1189622809757665383}
 --- !u!1 &4356178063261208919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,6 +2225,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+--- !u!114 &355284605128837286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633176899088219993, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+  m_PrefabInstance: {fileID: 875746166992304127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1c901a3184376509c17274c402d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecoverableWord
 --- !u!224 &2229222407795055590 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
@@ -2399,6 +2413,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
   m_PrefabInstance: {fileID: 1750524407210325822}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1189622809757665383 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633176899088219993, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+  m_PrefabInstance: {fileID: 1750524407210325822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1c901a3184376509c17274c402d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecoverableWord
 --- !u!1001 &1811055290135757181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2769,3 +2794,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
   m_PrefabInstance: {fileID: 8298716997303312746}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8927128604876234291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633176899088219993, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+  m_PrefabInstance: {fileID: 8298716997303312746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1c901a3184376509c17274c402d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecoverableWord

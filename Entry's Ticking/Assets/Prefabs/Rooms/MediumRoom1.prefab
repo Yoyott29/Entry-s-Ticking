@@ -666,7 +666,10 @@ MonoBehaviour:
   spawnTile: {x: 0, y: -4, z: 0}
   exitTile: {x: 2, y: 3, z: 0}
   collisionTilemap: {fileID: 7795847087957307468}
-  wordSlots: []
+  wordSlots:
+  - {fileID: 7506664460453109119}
+  - {fileID: 4433593223767274951}
+  - {fileID: 8337381862784610257}
 --- !u!1 &7055713025827814696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,7 +2198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.75
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2223,6 +2226,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
   m_PrefabInstance: {fileID: 3841067468648401566}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4433593223767274951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633176899088219993, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+  m_PrefabInstance: {fileID: 3841067468648401566}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1c901a3184376509c17274c402d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecoverableWord
 --- !u!1001 &4706341835871620332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2363,7 +2377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2386,6 +2400,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+--- !u!114 &7506664460453109119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633176899088219993, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+  m_PrefabInstance: {fileID: 6981837843336897062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1c901a3184376509c17274c402d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecoverableWord
 --- !u!224 &8227222204080901695 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
@@ -2465,7 +2490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.25
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2493,3 +2518,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
   m_PrefabInstance: {fileID: 8898316445586116744}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8337381862784610257 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633176899088219993, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+  m_PrefabInstance: {fileID: 8898316445586116744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1c901a3184376509c17274c402d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecoverableWord
