@@ -77,13 +77,13 @@ public class GameManager : MonoBehaviour
             hud.UpdateLevelText(currentLevel);
 
             CurrentPhase = GamePhase.Recording;
-            Manage_Sounds.PlaySFX("Timer", timerSoundObject, false, true);
+            // Manage_Sounds.PlaySFX("Timer", timerSoundObject, false, true);
 
             recorder.BeginRecording(recordTime);
             hud.StartTimerDisplay(recordTime);
             yield return new WaitUntil(() => recorder.isDone);
 
-            Manage_Sounds.StopSFX(timerSoundObject);
+            // Manage_Sounds.StopSFX(timerSoundObject);
             
             CurrentPhase = GamePhase.Executing;
             yield return executor.PlaybackMoves(recorder.Moves);

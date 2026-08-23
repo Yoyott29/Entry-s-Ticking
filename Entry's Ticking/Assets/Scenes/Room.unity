@@ -434,6 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Manage_Dictionary
   originalWordsList: {fileID: 11400000, guid: 5d1c6f4349b472d4da1d27c04ce370c5, type: 2}
   translatedWordsList: {fileID: 11400000, guid: 265adecae7bdfc24fa7034455c8d5e6f, type: 2}
+  startingWordsCount: 14
 --- !u!82 &207308519
 AudioSource:
   m_ObjectHideFlags: 0
@@ -543,7 +544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288f775d17a476c4e99b1278625613e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Manage_Sounds
-  themes: []
+  themes:
+  - {fileID: 8300000, guid: f86afa4c162c99c46a405520da646377, type: 3}
   sfx:
   - {fileID: 8300000, guid: 83ae4f706d4379d43aa4a19dbedf706b, type: 3}
   - {fileID: 8300000, guid: 44c6eb9c762f83a43aca50a72461a357, type: 3}

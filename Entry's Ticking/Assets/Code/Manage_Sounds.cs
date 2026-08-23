@@ -27,7 +27,7 @@ public class Manage_Sounds : MonoBehaviour
             sfxDictionary[sfxClip.name] = sfxClip;
         }
 
-        // PlayTheme("Timer", audioSource);
+        PlayTheme("JAM THEME", audioSource);
     }
 
     public static void PlayTheme(string themeName, AudioSource source)
@@ -50,7 +50,7 @@ public class Manage_Sounds : MonoBehaviour
         
         if (audioSource == null) {
             audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.volume = 1.0f;
+            audioSource.volume = 0.8f; // Set a default volume for SFX
         }
 
         audioSource.loop = loop;
