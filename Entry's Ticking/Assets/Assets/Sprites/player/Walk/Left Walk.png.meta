@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 7325e5468886fec14a6142b86c9e590f
+guid: e4644f6f0819ee74d81ddcf3974d36d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4334783836991956000
-    second: player_0
+      213: -1532843203466232227
+    second: Left Walk_0
+  - first:
+      213: 6069161487814650962
+    second: Left Walk_1
+  - first:
+      213: -5851359213225829246
+    second: Left Walk_2
+  - first:
+      213: -344632365799407901
+    second: Left Walk_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -53,7 +62,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -100,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_0
+      name: Left Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 024a20edeee382c30800000000000000
-      internalID: 4334783836991956000
+      spriteID: d5ef5015a3f3abae0800000000000000
+      internalID: -1532843203466232227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left Walk_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25c6ca5a73ef93450800000000000000
+      internalID: 6069161487814650962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left Walk_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c17722ccbcbcea0800000000000000
+      internalID: -5851359213225829246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left Walk_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee7c6270be973bf0800000000000000
+      internalID: -344632365799407901
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b6b8f920cbeb7d60b90fbab9c6839228
+    spriteID: 78e1be758e845ef43ad16ba2a4e7e9e4
     internalID: 0
     vertices: []
     indices: 
@@ -137,7 +212,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      player_0: 4334783836991956000
+      Left Walk_0: -1532843203466232227
+      Left Walk_1: 6069161487814650962
+      Left Walk_2: -5851359213225829246
+      Left Walk_3: -344632365799407901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerExecutor : MonoBehaviour
 {
     public float stepDuration = 0.3f;
-    public float pauseBetweenMoves = 0.05f;
+    public float originalPauseBetweenMoves = 0.05f;
     public float fallDuration = 0.3f;
     public float fallDistance = 0.5f;
 
@@ -22,9 +22,12 @@ public class PlayerExecutor : MonoBehaviour
     public bool fellInHole {get; private set;}
     public event Action<int> OnMoveExecuted;
 
+    private Animator playerAnimator;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     public void PlacePlayerAt(RoomData room, Vector3Int tile)
@@ -57,6 +60,7 @@ public class PlayerExecutor : MonoBehaviour
     public IEnumerator PlaybackMoves(List<QueuedAction> moves)
     {
         for (int i = 0; i < moves.Count; i++) {
+            float pauseBetweenMoves = originalPauseBetweenMoves;
             OnMoveExecuted?.Invoke(i);
             var action = moves[i];
 
@@ -78,6 +82,8 @@ public class PlayerExecutor : MonoBehaviour
                 }
             } else if (action.type == ActionType.Attack)
             {
+                playerAnimator.SetBool("Swinging", true);
+                pauseBetweenMoves = 1.0f;
                 Vector3Int target = currentTile + new Vector3Int(facingDirection.x, facingDirection.y, 0);
 
                 if (barrels.TryGetValue(target, out Barrel barrel)) {
@@ -87,6 +93,7 @@ public class PlayerExecutor : MonoBehaviour
             }
 
             yield return new WaitForSeconds(pauseBetweenMoves);
+            playerAnimator.SetBool("Swinging", false);
         }
         reachedExit = currentTile == room.exitTile;
     }
@@ -125,9 +132,13 @@ public class PlayerExecutor : MonoBehaviour
 
     IEnumerator MoveTo(Vector3Int target)
     {
+        playerAnimator.SetBool("Walking", true);
+
         Vector3 start = transform.position;
         Vector3 end = room.collisionTilemap.GetCellCenterWorld(target);
         float time = 0;
+        playerAnimator.SetFloat("X", facingDirection.x);
+        playerAnimator.SetFloat("Y", facingDirection.y);
 
         while (time < stepDuration) {
             time += Time.deltaTime;
@@ -136,5 +147,10 @@ public class PlayerExecutor : MonoBehaviour
         }
 
         transform.position = end;
+
+        playerAnimator.SetBool("Walking", false);
     }
 }
+
+
+

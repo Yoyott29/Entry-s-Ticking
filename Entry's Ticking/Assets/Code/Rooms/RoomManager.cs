@@ -6,6 +6,13 @@ public class RoomManager : MonoBehaviour
     public RoomData[] roomPrefabs;
     RoomData current;
     int lastIndex = -1;
+    private Animator playerAnimator;
+
+
+    void Awake()
+    {
+        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+    }
 
     public RoomData LoadRandomRoom()
     {
@@ -24,6 +31,9 @@ public class RoomManager : MonoBehaviour
 
     public RoomData ReloadCurrentRoom()
     {
+        playerAnimator.SetFloat("X", 0);
+        playerAnimator.SetFloat("Y", 1);
+        
         if (current)
             Destroy(current.gameObject);
 

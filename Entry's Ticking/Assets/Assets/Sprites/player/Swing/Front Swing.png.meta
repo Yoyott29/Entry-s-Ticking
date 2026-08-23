@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 7325e5468886fec14a6142b86c9e590f
+guid: 97bc309a2d2ee444da9e93908829f5f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4334783836991956000
-    second: player_0
+      213: -1190538689854272487
+    second: Front Swing_0
+  - first:
+      213: -7139969223844513860
+    second: Front Swing_1
+  - first:
+      213: -3903875726599116431
+    second: Front Swing_2
+  - first:
+      213: 8429423495963452316
+    second: Front Swing_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_0
+      name: Front Swing_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 024a20edeee382c30800000000000000
-      internalID: 4334783836991956000
+      spriteID: 91c80eb8e5b5a7fe0800000000000000
+      internalID: -1190538689854272487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Front Swing_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb7b681f1dbb9ec90800000000000000
+      internalID: -7139969223844513860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Front Swing_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1792ac4d5b5a2d9c0800000000000000
+      internalID: -3903875726599116431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Front Swing_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c93ab3232045bf470800000000000000
+      internalID: 8429423495963452316
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b6b8f920cbeb7d60b90fbab9c6839228
+    spriteID: 2fd625f652a6f2c4da40a5cc92066c9e
     internalID: 0
     vertices: []
     indices: 
@@ -137,7 +212,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      player_0: 4334783836991956000
+      Front Swing_0: -1190538689854272487
+      Front Swing_1: -7139969223844513860
+      Front Swing_2: -3903875726599116431
+      Front Swing_3: 8429423495963452316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
