@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: -2, y: -1, z: 0}
   animator: {fileID: 5412158879707710768}
   breakTrigger: Break
   residueDuration: 2
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: -1, y: 3, z: 0}
   animator: {fileID: 3311600343367146132}
   breakTrigger: Break
   residueDuration: 2
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 0, y: -2, z: 0}
   animator: {fileID: 2138875697097165918}
   breakTrigger: Break
   residueDuration: 2
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 1, y: 3, z: 0}
   animator: {fileID: 6743451100170955078}
   breakTrigger: Break
   residueDuration: 2
@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: -1, y: 0, z: 0}
   animator: {fileID: 7312306369235328441}
   breakTrigger: Break
   residueDuration: 2
@@ -2940,7 +2940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 2, y: -1, z: 0}
   animator: {fileID: 7481404148252113149}
   breakTrigger: Break
   residueDuration: 2
@@ -3225,7 +3225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 1, y: -2, z: 0}
   animator: {fileID: 4756669012880182983}
   breakTrigger: Break
   residueDuration: 2
@@ -3674,7 +3674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 0, y: 3, z: 0}
   animator: {fileID: 5304344491163102812}
   breakTrigger: Break
   residueDuration: 2
@@ -4350,7 +4350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 0, y: 1, z: 0}
   animator: {fileID: 5274336252044182281}
   breakTrigger: Break
   residueDuration: 2
@@ -4596,7 +4596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 1, y: -1, z: 0}
   animator: {fileID: 1488026958060479227}
   breakTrigger: Break
   residueDuration: 2
@@ -5192,7 +5192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 1, y: 0, z: 0}
   animator: {fileID: 7511333452887458711}
   breakTrigger: Break
   residueDuration: 2
@@ -5560,7 +5560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: 0, y: 0, z: 0}
   animator: {fileID: 1729254710756684913}
   breakTrigger: Break
   residueDuration: 2
@@ -6495,7 +6495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: -1, y: -1, z: 0}
   animator: {fileID: 4844168691240637382}
   breakTrigger: Break
   residueDuration: 2
@@ -6741,7 +6741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: -2, y: 3, z: 0}
   animator: {fileID: 8159109229260680022}
   breakTrigger: Break
   residueDuration: 2
@@ -6873,7 +6873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4e5d4822eb5ea19737e5e3a6e4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Barrel
-  tilePosition: {x: 10, y: 10, z: 0}
+  tilePosition: {x: -1, y: -2, z: 0}
   animator: {fileID: 5021449016968089758}
   breakTrigger: Break
   residueDuration: 2
