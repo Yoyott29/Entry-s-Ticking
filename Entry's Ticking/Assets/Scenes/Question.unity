@@ -707,7 +707,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 336802506}
-  - component: {fileID: 336802505}
   - component: {fileID: 336802507}
   m_Layer: 0
   m_Name: Managers
@@ -716,20 +715,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &336802505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336802504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af9a44cd40b4af409288972b2e01eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Manage_Dictionary
-  originalWordsList: {fileID: 11400000, guid: 5d1c6f4349b472d4da1d27c04ce370c5, type: 2}
-  translatedWordsList: {fileID: 11400000, guid: 265adecae7bdfc24fa7034455c8d5e6f, type: 2}
 --- !u!4 &336802506
 Transform:
   m_ObjectHideFlags: 0

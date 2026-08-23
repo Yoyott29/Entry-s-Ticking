@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 
 public enum GamePhase { Loading, Recording, Executing, Result }
@@ -14,35 +15,63 @@ public class GameManager : MonoBehaviour
     public float recordTime = 10f;
     public int currentLevel = 1;
     bool lastAttemptSuccess = true;
+    List<string> currentRoomWords = new();
+    List<string> lostWordsThisRoom = new();
 
     public static GameManager instance;
 
     void Awake()
     {
-        if (instance == null) {
+        if (instance == null)
+        {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        } else
+        }
+        else
             Destroy(gameObject);
+
     }
 
     void Start()
     {
+
         roomManager = gameObject.GetComponent<RoomManager>();
+
         recorder = gameObject.GetComponent<InputRecorder>();
-        executor = GameObject.Find("Player").GetComponent<PlayerExecutor>();
-        hud = GameObject.Find("Canvas").GetComponent<HUDController>();
+
+        var playerObj = GameObject.Find("Player");
+        if (playerObj != null)
+            executor = playerObj.GetComponent<PlayerExecutor>();
+
+        var canvasObj = GameObject.Find("Canvas");
+        if (canvasObj != null)
+            hud = canvasObj.GetComponent<HUDController>();
 
         StartCoroutine(RunLevel());
     }
 
     IEnumerator RunLevel()
     {
+
         while (true)
         {
             CurrentPhase = GamePhase.Loading;
-            var room = lastAttemptSuccess ? roomManager.LoadRandomRoom() : roomManager.ReloadCurrentRoom();
+            RoomData room;
+
+            if (lastAttemptSuccess)
+            {
+                room = roomManager.LoadRandomRoom();
+
+                currentRoomWords = WordPoolManager.instance.PickWordsForRoom(3);
+                lostWordsThisRoom.Clear();
+            }
+            else
+                room = roomManager.ReloadCurrentRoom();
+
+            room.AssignWords(currentRoomWords, lostWordsThisRoom);
+
             executor.PlacePlayerAt(room, room.spawnTile);
+
             hud.UpdateLevelText(currentLevel);
 
             CurrentPhase = GamePhase.Recording;
@@ -54,15 +83,29 @@ public class GameManager : MonoBehaviour
             yield return executor.PlaybackMoves(recorder.Moves);
 
             bool success = executor.reachedExit && executor.hasKey && !executor.fellInHole;
-            if (success)
-                currentLevel++;            
-            lastAttemptSuccess = success;
 
+            if (success)
+            {
+                foreach (var word in executor.TakenWords)
+                {
+                    Manage_Dictionary.addWord(word);
+                    WordPoolManager.instance.RemoveWordPermanently(word);
+                }
+                currentLevel++;
+            }
+            else
+            {
+                lostWordsThisRoom.AddRange(executor.TakenWords);
+            }
+
+            lastAttemptSuccess = success;
             CurrentPhase = GamePhase.Result;
+
             if (success)
                 yield return LaunchQuestionScene();
             else
                 yield return new WaitForSeconds(3f);
+
         }
     }
 

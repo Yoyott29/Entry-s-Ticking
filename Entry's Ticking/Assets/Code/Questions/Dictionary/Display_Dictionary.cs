@@ -55,11 +55,11 @@ public class Display_Dictionary : MonoBehaviour
         int wordsPerPage = 16;
         int wordCount = 0;
 
-        // foreach (var word in Manage_Dictionary.availableDictionary)
-        foreach (var word in Manage_Dictionary.fullDictionary)
+        foreach (var word in Manage_Dictionary.availableDictionary)
+        // foreach (var word in Manage_Dictionary.fullDictionary)
         {
             if (wordCount % wordsPerPage == 0)
-            {
+                {
                 dictionaryPage newPage = new dictionaryPage();
                 pageNumber++;
                 newPage.pageNumber = pageNumber;

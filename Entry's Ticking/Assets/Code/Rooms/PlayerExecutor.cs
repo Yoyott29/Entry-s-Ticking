@@ -21,11 +21,14 @@ public class PlayerExecutor : MonoBehaviour
     public bool reachedExit {get; private set;}
     public bool fellInHole {get; private set;}
     public event Action<int> OnMoveExecuted;
+    List<string> takenWords = new();
 
     private Animator playerAnimator;
     private GameObject actionSoundObject;
 
     private bool walking = false;
+
+    public IReadOnlyList<string> TakenWords => takenWords;
 
     void Awake()
     {
@@ -45,6 +48,7 @@ public class PlayerExecutor : MonoBehaviour
         fellInHole = false;
         fallenTiles.Clear();
         facingDirection = Vector2Int.up;
+        takenWords.Clear();
 
         barrels.Clear();
         foreach(var barrel in room.GetComponentsInChildren<Barrel>())
@@ -156,6 +160,13 @@ public class PlayerExecutor : MonoBehaviour
             Manage_Sounds.PlaySFX("Collect Key", actionSoundObject, false);
             hasKey = true;
             Destroy(other.gameObject);
+        } else if (other.CompareTag("RecoverableWord"))
+        {
+            var word = other.GetComponent<RecoverableWord>();
+            if (word != null) {
+                takenWords.Add(word.originalWord);
+                Destroy(other.gameObject);
+            }
         }
     }
 

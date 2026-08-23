@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 207308518}
   - component: {fileID: 207308520}
   - component: {fileID: 207308519}
+  - component: {fileID: 207308521}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -385,9 +386,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   roomPrefabs:
-  - {fileID: 4967702370175777962, guid: 4d02e1f1a5013f9d9928365db8abb425, type: 3}
-  - {fileID: 4967702370175777962, guid: 4d02e1f1a5013f9d9928365db8abb425, type: 3}
-  - {fileID: 4967702370175777962, guid: 4d02e1f1a5013f9d9928365db8abb425, type: 3}
+  - {fileID: 8773916908366237210, guid: 234227e42a05f243b9ead6c9bbae14e6, type: 3}
+  - {fileID: 8773916908366237210, guid: 234227e42a05f243b9ead6c9bbae14e6, type: 3}
+  - {fileID: 8773916908366237210, guid: 234227e42a05f243b9ead6c9bbae14e6, type: 3}
 --- !u!114 &207308516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +557,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b2754c2f6401fe844a2cf2cf3fa4c2be, type: 3}
   - {fileID: 8300000, guid: cab8a9dd4fea9a1449f9347003ed7d60, type: 3}
   - {fileID: 8300000, guid: 8dc8b46b3d09ec74e81c871d11e2171a, type: 3}
+--- !u!114 &207308521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207308513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4b10413990f4a19b609abf03e1e47c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WordPoolManager
 --- !u!1 &279694262
 GameObject:
   m_ObjectHideFlags: 0

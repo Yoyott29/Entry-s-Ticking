@@ -65,6 +65,15 @@ public class Manage_Dictionary : MonoBehaviour
         fullDictionary.Add(timeKey);
 
         addWord("Key");
+
+        if (WordPoolManager.instance != null)
+        {
+            List<string> allWords = new List<string>();
+            foreach(var word in fullDictionary)
+                allWords.Add(word.originalWord);
+
+            WordPoolManager.instance.InitializePool(allWords, "Key");
+        }
     }
 
     public static void addWord(string originalWord) // Adds a word to the available dictionary (if it exists in the full dictionary)
