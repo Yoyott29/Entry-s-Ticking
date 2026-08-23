@@ -17,10 +17,11 @@ public class WordPoolManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void InitializePool(List<string> allOriginalWords, string excludeWord)
+    public void InitializePool(List<string> allOriginalWords, List<string> excludeWords)
     {
         availableWordPool = new List<string>(allOriginalWords);
-        availableWordPool.Remove(excludeWord);
+        foreach (var word in excludeWords)
+            availableWordPool.Remove(word);
     }
 
     public List<string> PickWordsForRoom(int count)
@@ -42,4 +43,3 @@ public class WordPoolManager : MonoBehaviour
         availableWordPool.Remove(word);
     }
 }
-

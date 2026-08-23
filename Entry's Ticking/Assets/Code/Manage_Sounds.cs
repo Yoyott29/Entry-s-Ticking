@@ -9,7 +9,7 @@ public class Manage_Sounds : MonoBehaviour
     private static Dictionary<string, AudioClip> themeDictionary;
     private static Dictionary<string, AudioClip> sfxDictionary;
 
-    void Start()
+    void Awake()
     {
         AudioSource audioSource = GetComponent<AudioSource>();
 
@@ -27,7 +27,7 @@ public class Manage_Sounds : MonoBehaviour
             sfxDictionary[sfxClip.name] = sfxClip;
         }
 
-        PlayTheme("Timer", audioSource);
+        // PlayTheme("Timer", audioSource);
     }
 
     public static void PlayTheme(string themeName, AudioSource source)

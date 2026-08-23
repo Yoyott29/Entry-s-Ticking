@@ -55,8 +55,15 @@ public class Display_Dictionary : MonoBehaviour
         int wordsPerPage = 16;
         int wordCount = 0;
 
-        foreach (var word in Manage_Dictionary.availableDictionary)
-        // foreach (var word in Manage_Dictionary.fullDictionary)
+        List<wordEquivalence> sortedDictionary = new List<wordEquivalence>(Manage_Dictionary.availableDictionary);
+        sortedDictionary.Sort((a, b) => string.Compare(a.translatedWord, b.translatedWord, System.StringComparison.OrdinalIgnoreCase));
+
+        foreach (var word in sortedDictionary)
+        {
+            Debug.Log("Word: " + word.translatedWord + " - " + word.originalWord);
+        }
+
+        foreach (var word in sortedDictionary)
         {
             if (wordCount % wordsPerPage == 0)
                 {

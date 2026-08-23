@@ -15,9 +15,13 @@ public class SingleEventSystem : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else if (instance != self)
-        {
-            // A duplicate EventSystem came in with a reloaded scene — remove it
             Destroy(gameObject);
-        }
+    }
+
+    public static void ResetInstance()
+    {
+        if (instance != null)
+            Destroy(instance.gameObject);
+        instance = null;
     }
 }

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     List<string> lostWordsThisRoom = new();
 
     public static GameManager instance;
+    private GameObject timerSoundObject;
 
     void Awake()
     {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
 
         roomManager = gameObject.GetComponent<RoomManager>();
+        timerSoundObject = gameObject.transform.Find("Timer Sound").gameObject;
 
         recorder = gameObject.GetComponent<InputRecorder>();
 
@@ -75,10 +77,14 @@ public class GameManager : MonoBehaviour
             hud.UpdateLevelText(currentLevel);
 
             CurrentPhase = GamePhase.Recording;
+            Manage_Sounds.PlaySFX("Timer", timerSoundObject, false, true);
+
             recorder.BeginRecording(recordTime);
             hud.StartTimerDisplay(recordTime);
             yield return new WaitUntil(() => recorder.isDone);
 
+            Manage_Sounds.StopSFX(timerSoundObject);
+            
             CurrentPhase = GamePhase.Executing;
             yield return executor.PlaybackMoves(recorder.Moves);
 
@@ -107,6 +113,26 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(3f);
 
         }
+    }
+
+
+    public static void ResetAndReturnToMenu()
+    {
+        Manage_Dictionary.fullDictionary = null;
+        Manage_Dictionary.availableDictionary = null;
+        Manage_Dictionary.questionAnsweredCorrectly = false;
+
+        if (WordPoolManager.instance != null)
+            Destroy(WordPoolManager.instance.gameObject);
+        WordPoolManager.instance = null;
+
+        SingleEventSystem.ResetInstance();
+        
+        if (instance != null)
+            Destroy(instance.gameObject);
+        instance = null;
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
     IEnumerator LaunchQuestionScene()

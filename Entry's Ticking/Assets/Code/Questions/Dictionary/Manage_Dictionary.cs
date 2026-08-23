@@ -11,22 +11,26 @@ public struct wordEquivalence
 
 public class Manage_Dictionary : MonoBehaviour
 {
-    public WordList originalWordsList; // Reference to the original words list
-    public WordList translatedWordsList; // Reference to the translated words list
+    public WordList originalWordsList;
+    public WordList translatedWordsList;
 
-    public static List<wordEquivalence> fullDictionary; // Static list to hold the full dictionary of word equivalences
-    public static List<wordEquivalence> availableDictionary; // Static list to hold the available dictionary of word equivalences
+    public int startingWordsCount = 14; // How many random words are already known at game start (+ "Key" which is always known)
 
-    static public bool questionAnsweredCorrectly = false; // Static boolean to track if the question was answered correctly
+    public static List<wordEquivalence> fullDictionary;
+    public static List<wordEquivalence> availableDictionary;
 
+    static public bool questionAnsweredCorrectly = false;
 
     void Awake()
     {
-        availableDictionary = new List<wordEquivalence>();
-        createDictionary();
+        if (fullDictionary == null)
+        {
+            availableDictionary = new List<wordEquivalence>();
+            createDictionary();
+        }
     }
 
-    public void createDictionary() // Randomly creates the full dictionary from the original and translated word lists
+    public void createDictionary()
     {
         if (originalWordsList.words.Count != translatedWordsList.words.Count)
         {
@@ -35,48 +39,63 @@ public class Manage_Dictionary : MonoBehaviour
         }
 
         fullDictionary = new List<wordEquivalence>();
-        
 
         List<string> originalWordsListCopy = new List<string>(originalWordsList.words);
         List<string> translatedWordsListCopy = new List<string>(translatedWordsList.words);
 
-
         for (int i = 0; i < originalWordsListCopy.Count; i++)
         {
             wordEquivalence newWord;
-            
+
             int randomIndex = Random.Range(0, translatedWordsListCopy.Count);
 
             newWord.originalWord = originalWordsListCopy[i];
             newWord.translatedWord = translatedWordsListCopy[randomIndex];
-            newWord.pageNumber = 1; // Default page number, is modified later when the word is added to the available dictionary
+            newWord.pageNumber = 1;
 
-            translatedWordsListCopy.RemoveAt(randomIndex); // Remove the used translated word to avoid duplicates
+            translatedWordsListCopy.RemoveAt(randomIndex);
 
             fullDictionary.Add(newWord);
         }
 
         wordEquivalence timeKey;
-
         timeKey.originalWord = "Key";
         timeKey.translatedWord = "Time";
         timeKey.pageNumber = 1;
 
         fullDictionary.Add(timeKey);
 
+        // "Key" is always already known
         addWord("Key");
+        List<string> alreadyUnlockedWords = new List<string> { "Key" };
+
+        List<wordEquivalence> pickableWords = new List<wordEquivalence>(fullDictionary);
+        pickableWords.RemoveAll(w => w.originalWord == "Key");
+
+        int wordsToGive = Mathf.Min(startingWordsCount, pickableWords.Count);
+
+        for (int i = 0; i < wordsToGive; i++)
+        {
+            int randomIndex = Random.Range(0, pickableWords.Count);
+            wordEquivalence chosen = pickableWords[randomIndex];
+
+            addWord(chosen.originalWord);
+            alreadyUnlockedWords.Add(chosen.originalWord);
+
+            pickableWords.RemoveAt(randomIndex);
+        }
 
         if (WordPoolManager.instance != null)
         {
             List<string> allWords = new List<string>();
-            foreach(var word in fullDictionary)
+            foreach (var word in fullDictionary)
                 allWords.Add(word.originalWord);
 
-            WordPoolManager.instance.InitializePool(allWords, "Key");
+            WordPoolManager.instance.InitializePool(allWords, alreadyUnlockedWords);
         }
     }
 
-    public static void addWord(string originalWord) // Adds a word to the available dictionary (if it exists in the full dictionary)
+    public static void addWord(string originalWord)
     {
         foreach (wordEquivalence word in fullDictionary)
         {

@@ -67,6 +67,7 @@ public class PlayerExecutor : MonoBehaviour
 
     public IEnumerator PlaybackMoves(List<QueuedAction> moves)
     {
+
         for (int i = 0; i < moves.Count; i++) {
             float pauseBetweenMoves = originalPauseBetweenMoves;
             OnMoveExecuted?.Invoke(i);
@@ -132,6 +133,11 @@ public class PlayerExecutor : MonoBehaviour
             }
             yield return new WaitForSeconds(0.5f);
         }
+        else
+        {
+            walking = false;
+            Manage_Sounds.StopSFX(gameObject);
+        }
         yield return null;
     }
     IEnumerator PlayerFall()
@@ -162,6 +168,7 @@ public class PlayerExecutor : MonoBehaviour
             Destroy(other.gameObject);
         } else if (other.CompareTag("RecoverableWord"))
         {
+            Manage_Sounds.PlaySFX("Collect Key", actionSoundObject, false);
             var word = other.GetComponent<RecoverableWord>();
             if (word != null) {
                 takenWords.Add(word.originalWord);

@@ -2031,6 +2031,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3351838861405425819}
     m_Modifications:
+    - target: {fileID: 9234121345798619, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+      propertyPath: m_margin.x
+      value: 99.51523
+      objectReference: {fileID: 0}
+    - target: {fileID: 9234121345798619, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+      propertyPath: m_margin.y
+      value: 24.884373
+      objectReference: {fileID: 0}
+    - target: {fileID: 9234121345798619, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
+      propertyPath: m_margin.z
+      value: 99.51832
+      objectReference: {fileID: 0}
     - target: {fileID: 1353489500978506777, guid: 473cc17855cb2826aa2081e1e0dd1168, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

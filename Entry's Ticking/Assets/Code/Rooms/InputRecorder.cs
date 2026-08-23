@@ -12,6 +12,10 @@ public class InputRecorder : MonoBehaviour
 
     static readonly Dictionary<KeyCode, Vector2Int> Keymap = new()
     {
+        { KeyCode.UpArrow, Vector2Int.up },
+        { KeyCode.DownArrow, Vector2Int.down },
+        { KeyCode.LeftArrow, Vector2Int.left },
+        { KeyCode.RightArrow, Vector2Int.right },
         { KeyCode.W, Vector2Int.up },
         { KeyCode.S, Vector2Int.down },
         { KeyCode.A, Vector2Int.left },
@@ -21,7 +25,7 @@ public class InputRecorder : MonoBehaviour
 
     void Start()
     {
-        inputSoundObject = gameObject.transform.Find("Input Sound").gameObject;
+        inputSoundObject = gameObject.transform.Find("Input Sound").gameObject;;
     }
 
     public void BeginRecording(float duration)

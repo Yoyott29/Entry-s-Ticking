@@ -85,6 +85,9 @@ public class Manage_Question : MonoBehaviour
                 newAnswer.transform.Find("Text").GetComponent<TMPro.TextMeshProUGUI>().text = EncryptSentence(answersList.words[randomWrongAnswerIndex], false);
             }
         }
+
+        Debug.Log("Correct Answer: " + correctAnswer);
+        Debug.Log("Encrypted Correct Answer: " + EncryptSentence(correctAnswer, false));
     }
 
     void Update()
@@ -265,5 +268,11 @@ public class Manage_Question : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
     }
+
+    public void ReturnToMenu()
+    {
+        GameManager.ResetAndReturnToMenu();
+    }
+
 
 }
