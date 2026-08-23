@@ -19,16 +19,11 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
+        if (instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // A duplicate already exists (e.g. this scene got loaded again)
+        } else
             Destroy(gameObject);
-        }
     }
 
     void Start()
@@ -58,16 +53,14 @@ public class GameManager : MonoBehaviour
             CurrentPhase = GamePhase.Executing;
             yield return executor.PlaybackMoves(recorder.Moves);
 
-            bool success = executor.reachedExit && executor.hasKey;
+            bool success = executor.reachedExit && executor.hasKey && !executor.fellInHole;
             if (success)
                 currentLevel++;            
             lastAttemptSuccess = success;
 
             CurrentPhase = GamePhase.Result;
             if (success)
-            {
                 yield return LaunchQuestionScene();
-            }
             else
                 yield return new WaitForSeconds(3f);
         }

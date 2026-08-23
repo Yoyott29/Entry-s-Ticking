@@ -96,15 +96,16 @@ public class HUDController : MonoBehaviour
     void RefreshMoveIcons()
     {
         for (int i = 0; i < slots.Count; i++)
-            slots[i].text = i < recorder.Moves.Count ? DirectionSymbol(recorder.Moves[i]) : "_";
+            slots[i].text = i < recorder.Moves.Count ? ActionSymbol(recorder.Moves[i]) : "_";
     }
 
-    string DirectionSymbol(Vector2Int move)
+    string ActionSymbol(QueuedAction action)
     {
-        if (move == Vector2Int.up) return "↑";
-        else if (move == Vector2Int.down) return "↓";
-        else if (move == Vector2Int.left) return "←";
-        else if (move == Vector2Int.right) return "→";
-        else return "?";
+        if (action.type == ActionType.Attack) return "X";
+        else if (action.direction == Vector2Int.up) return "↑";
+        else if (action.direction == Vector2Int.down) return "↓";
+        else if (action.direction == Vector2Int.left) return "←";
+        else if (action.direction == Vector2Int.right) return "→";
+        else return "_";
     }
 }

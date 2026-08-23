@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class InputRecorder : MonoBehaviour
 {
-    public List<Vector2Int> Moves { get; private set; } = new();
+    public List<QueuedAction> Moves { get; private set; } = new();
     public bool isDone { get; private set; }
     float timer;
     public int maxMoves = 15;
@@ -30,7 +30,10 @@ public class InputRecorder : MonoBehaviour
 
         foreach(var keyValue in Keymap)
             if (Input.GetKeyDown(keyValue.Key) && Moves.Count < maxMoves)
-                Moves.Add(keyValue.Value);
+                Moves.Add(QueuedAction.MoveAction(keyValue.Value));
+
+        if (Input.GetKeyDown(KeyCode.Space) && Moves.Count < maxMoves)
+            Moves.Add(QueuedAction.AttackAction());
 
         if (Input.GetKeyDown(KeyCode.Backspace) && Moves.Count > 0)
             Moves.RemoveAt(Moves.Count - 1);

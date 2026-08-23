@@ -590,7 +590,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2125,6 +2125,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 871922648541357142}
     m_Modifications:
+    - target: {fileID: 2949260524810006006, guid: 74beefabd6b9a8185a0c8c22879010ad, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3847517291999840839, guid: 74beefabd6b9a8185a0c8c22879010ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.483

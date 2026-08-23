@@ -383,8 +383,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   roomPrefabs:
-  - {fileID: 8773916908366237210, guid: 234227e42a05f243b9ead6c9bbae14e6, type: 3}
-  - {fileID: 7201719641257882535, guid: d1dbdd1bb474c295392ee11d11fd1084, type: 3}
+  - {fileID: 4967702370175777962, guid: 4d02e1f1a5013f9d9928365db8abb425, type: 3}
+  - {fileID: 4967702370175777962, guid: 4d02e1f1a5013f9d9928365db8abb425, type: 3}
+  - {fileID: 4967702370175777962, guid: 4d02e1f1a5013f9d9928365db8abb425, type: 3}
 --- !u!114 &207308516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,7 +802,7 @@ GameObject:
   - component: {fileID: 931362324}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -820,6 +821,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerExecutor
   stepDuration: 0.5
   pauseBetweenMoves: 0.1
+  fallDuration: 0.3
+  fallDistance: 0.5
 --- !u!212 &931362322
 SpriteRenderer:
   serializedVersion: 2
