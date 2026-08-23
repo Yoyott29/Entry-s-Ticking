@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 195194335}
   - component: {fileID: 195194334}
   - component: {fileID: 195194333}
+  - component: {fileID: 195194336}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -324,6 +325,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &195194336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195194332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71bd3254361906419e0e08c234cb184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SingleEventSystem
 --- !u!1 &207308513
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +349,7 @@ GameObject:
   - component: {fileID: 207308516}
   - component: {fileID: 207308515}
   - component: {fileID: 207308514}
+  - component: {fileID: 207308518}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -383,10 +397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9c99408cfc5e07eb15ddede3dfca75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  roomManager: {fileID: 207308515}
-  recorder: {fileID: 207308514}
-  executor: {fileID: 931362321}
-  hud: {fileID: 91780974}
   recordTime: 15
   currentLevel: 1
 --- !u!4 &207308517
@@ -404,6 +414,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &207308518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207308513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af9a44cd40b4af409288972b2e01eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Manage_Dictionary
+  originalWordsList: {fileID: 11400000, guid: 5d1c6f4349b472d4da1d27c04ce370c5, type: 2}
+  translatedWordsList: {fileID: 11400000, guid: 265adecae7bdfc24fa7034455c8d5e6f, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

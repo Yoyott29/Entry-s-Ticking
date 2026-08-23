@@ -32,6 +32,18 @@ public class HUDController : MonoBehaviour
 
     }
 
+    public void Initialize(InputRecorder rec, PlayerExecutor exec)
+    {
+        if (executor != null)
+            executor.OnMoveExecuted -= HighlightMove;
+
+        recorder = rec;
+        executor = exec;
+
+        if (executor != null)
+            executor.OnMoveExecuted += HighlightMove;
+    }
+
     void OnEnable()
     {
         if (executor != null)
