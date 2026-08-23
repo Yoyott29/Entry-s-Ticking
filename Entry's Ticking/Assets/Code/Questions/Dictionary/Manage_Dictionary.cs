@@ -17,6 +17,8 @@ public class Manage_Dictionary : MonoBehaviour
     public static List<wordEquivalence> fullDictionary; // Static list to hold the full dictionary of word equivalences
     public static List<wordEquivalence> availableDictionary; // Static list to hold the available dictionary of word equivalences
 
+    static public bool questionAnsweredCorrectly = false; // Static boolean to track if the question was answered correctly
+
 
     void Awake()
     {

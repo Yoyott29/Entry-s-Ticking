@@ -7,15 +7,37 @@ public enum GamePhase { Loading, Recording, Executing, Result }
 public class GameManager : MonoBehaviour
 {
     public GamePhase CurrentPhase { get; private set; }
-    public RoomManager roomManager;
-    public InputRecorder recorder;
-    public PlayerExecutor executor;
-    public HUDController hud;
+    private RoomManager roomManager;
+    private InputRecorder recorder;
+    private PlayerExecutor executor;
+    private HUDController hud;
     public float recordTime = 10f;
     public int currentLevel = 1;
     bool lastAttemptSuccess = true;
 
-    void Start() {
+    public static GameManager instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // A duplicate already exists (e.g. this scene got loaded again)
+            Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        roomManager = gameObject.GetComponent<RoomManager>();
+        recorder = gameObject.GetComponent<InputRecorder>();
+        executor = GameObject.Find("Player").GetComponent<PlayerExecutor>();
+        hud = GameObject.Find("Canvas").GetComponent<HUDController>();
+
         StartCoroutine(RunLevel());
     }
 
@@ -42,8 +64,39 @@ public class GameManager : MonoBehaviour
             lastAttemptSuccess = success;
 
             CurrentPhase = GamePhase.Result;
-            Debug.Log(success ? "Level completed!" : "Failed, retrying same room.");
-            yield return new WaitForSeconds(3f);
+            if (success)
+            {
+                yield return LaunchQuestionScene();
+            }
+            else
+                yield return new WaitForSeconds(3f);
         }
+    }
+
+    IEnumerator LaunchQuestionScene()
+    {
+        string previousSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Question", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+
+        yield return null;
+
+        yield return UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(previousSceneName);
+
+        yield return new WaitUntil(() => Manage_Dictionary.questionAnsweredCorrectly);
+        
+        Manage_Dictionary.questionAnsweredCorrectly = false;
+
+        yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(previousSceneName, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+
+        yield return UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("Question");
+
+        executor = GameObject.Find("Player").GetComponent<PlayerExecutor>();
+        hud = GameObject.Find("Canvas").GetComponent<HUDController>();
+        hud.Initialize(recorder, executor);
+        
+        UnityEngine.SceneManagement.SceneManager.SetActiveScene(
+            UnityEngine.SceneManagement.SceneManager.GetSceneByName(previousSceneName)
+        );
     }
 }

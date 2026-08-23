@@ -157,11 +157,13 @@ public class Manage_Question : MonoBehaviour
                 if (rectTransform.rect.Contains(localMousePosition))
                 {
                     string selectedAnswer = DecryptSentence(answerButton.transform.Find("Text").GetComponent<TMPro.TextMeshProUGUI>().text);
-                    
+
                     selectedAnswer = selectedAnswer.TrimEnd('.'); // Remove punctuation for comparison
 
-                    if (selectedAnswer.ToLower() == correctAnswer.ToLower())
+                    if (selectedAnswer.ToLower() == correctAnswer.ToLower()) {
                         Debug.Log("Correct Answer!");
+                        Manage_Dictionary.questionAnsweredCorrectly = true; // Set the static boolean to true if the answer is correct
+                    }
                     else
                         Debug.Log("Wrong Answer!");
                     break;
@@ -169,7 +171,6 @@ public class Manage_Question : MonoBehaviour
             }
         }
     }
-
 
     public string EncryptSentence(string sentence, bool question)
     {
