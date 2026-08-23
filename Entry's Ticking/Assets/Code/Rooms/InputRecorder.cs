@@ -38,7 +38,7 @@ public class InputRecorder : MonoBehaviour
 
         foreach(var keyValue in Keymap)
             if (Input.GetKeyDown(keyValue.Key) && Moves.Count < maxMoves) {
-                Manage_Sounds.PlaySFX("Input", inputSoundObject);
+                Manage_Sounds.PlaySFX("Input", inputSoundObject, true);
                 Moves.Add(QueuedAction.MoveAction(keyValue.Value));
             }
 

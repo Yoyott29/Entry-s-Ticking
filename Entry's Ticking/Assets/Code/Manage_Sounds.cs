@@ -43,23 +43,22 @@ public class Manage_Sounds : MonoBehaviour
             Debug.LogWarning("Theme not found: " + themeName);
     }
 
-    public static void PlaySFX(string sfxName, GameObject gameObject, bool loop = false)
+    public static void PlaySFX(string sfxName, GameObject gameObject, bool randomPitch, bool loop = false)
     {
-        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 
+        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+        
         if (audioSource == null) {
             audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.loop = loop;
             audioSource.volume = 1.0f;
         }
+
+        audioSource.loop = loop;
+
         if (sfxDictionary.ContainsKey(sfxName))
         {
-            AudioClip clip = sfxDictionary[sfxName];
-
-            if (audioSource.isPlaying && audioSource.clip == clip)
-                return;
-
-            audioSource.clip = clip;
+            audioSource.clip = sfxDictionary[sfxName];
+            audioSource.pitch = randomPitch ? Random.Range(0.8f, 1.2f) : 1.0f;
             audioSource.Play();
         }
         else

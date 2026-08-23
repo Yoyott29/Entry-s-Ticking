@@ -64,11 +64,15 @@ public class InstableTile : MonoBehaviour
 
     IEnumerator FallAndDestroy()
     {
+        Manage_Sounds.PlaySFX("Tile Moving", gameObject, false);
+
         spriteRenderer.sortingOrder = 0;
         Vector3 start = transform.position;
         Vector3 end = start + Vector3.down * fallDistance;
         Color startColor = spriteRenderer.color;
         float time = 0;
+
+        yield return new WaitForSeconds(0.2f);
 
         while (time < fallDuration)
         {

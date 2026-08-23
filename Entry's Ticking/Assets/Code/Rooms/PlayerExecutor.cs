@@ -25,6 +25,8 @@ public class PlayerExecutor : MonoBehaviour
     private Animator playerAnimator;
     private GameObject actionSoundObject;
 
+    private bool walking = false;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -73,25 +75,42 @@ public class PlayerExecutor : MonoBehaviour
 
                 if (isWalkable(target))
                 {
+                    if (!walking)
+                    {
+                        Manage_Sounds.PlaySFX("Footsteps", gameObject, false, true);
+                        walking = true;
+                    }
+
                     yield return MoveTo(target);
                     currentTile = target;
 
-                    if (fallenTiles.Contains(currentTile)) {
+                    if (fallenTiles.Contains(currentTile) && !fellInHole) {
+                        walking = false;
+                        Manage_Sounds.PlaySFX("Fall", gameObject, false);
                         yield return PlayerFall();
                         fellInHole = true;
                         yield break;
                     }
                 }
+                else
+                {
+                    walking = false;
+                    Manage_Sounds.StopSFX(gameObject);
+                    playerAnimator.SetFloat("X", facingDirection.x);
+                    playerAnimator.SetFloat("Y", facingDirection.y);
+                }
             } else if (action.type == ActionType.Attack)
             {
+                walking = false;
+                Manage_Sounds.StopSFX(gameObject);
                 playerAnimator.SetBool("Swinging", true);
-                Manage_Sounds.PlaySFX("Sword Swing", actionSoundObject);
+                Manage_Sounds.PlaySFX("Sword Swing", actionSoundObject, true);
                 pauseBetweenMoves = 1.0f;
                 Vector3Int target = currentTile + new Vector3Int(facingDirection.x, facingDirection.y, 0);
 
                 if (barrels.TryGetValue(target, out Barrel barrel)) {
                     barrel.Break();
-                    Manage_Sounds.PlaySFX("Wood Breaking", actionSoundObject);
+                    Manage_Sounds.PlaySFX("Wood Breaking", actionSoundObject, false);
                     barrels.Remove(target);
                 }
             }
@@ -101,12 +120,16 @@ public class PlayerExecutor : MonoBehaviour
         }
         reachedExit = currentTile == room.exitTile;
         if (reachedExit) {
-            Manage_Sounds.PlaySFX("Door", actionSoundObject);
+            walking = false;
+            if (hasKey)
+            {
+                Manage_Sounds.StopSFX(gameObject);
+                Manage_Sounds.PlaySFX("Door", actionSoundObject, false);
+            }
             yield return new WaitForSeconds(0.5f);
         }
         yield return null;
     }
-
     IEnumerator PlayerFall()
     {
         Vector3 start = transform.position;
@@ -130,23 +153,19 @@ public class PlayerExecutor : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Key")) {
-            Manage_Sounds.PlaySFX("Collect Key", actionSoundObject);
+            Manage_Sounds.PlaySFX("Collect Key", actionSoundObject, false);
             hasKey = true;
             Destroy(other.gameObject);
         }
     }
 
     bool isWalkable(Vector3Int tile) {
-        
-        if (room.collisionTilemap.HasTile(tile) || barrels.ContainsKey(tile))
-            Manage_Sounds.StopSFX(gameObject);
         return !room.collisionTilemap.HasTile(tile) && !barrels.ContainsKey(tile);
     }
 
     IEnumerator MoveTo(Vector3Int target)
     {
         playerAnimator.SetBool("Walking", true);
-        Manage_Sounds.PlaySFX("Footsteps", gameObject, true);
 
         Vector3 start = transform.position;
         Vector3 end = room.collisionTilemap.GetCellCenterWorld(target);
