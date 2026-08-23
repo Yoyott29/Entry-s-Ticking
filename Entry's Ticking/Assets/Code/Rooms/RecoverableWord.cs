@@ -32,3 +32,4 @@ public class RecoverableWord : MonoBehaviour
             wordText.text = word;
     }
 }
+ 

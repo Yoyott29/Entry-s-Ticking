@@ -387,8 +387,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   roomPrefabs:
   - {fileID: 8773916908366237210, guid: 234227e42a05f243b9ead6c9bbae14e6, type: 3}
-  - {fileID: 8773916908366237210, guid: 234227e42a05f243b9ead6c9bbae14e6, type: 3}
-  - {fileID: 8773916908366237210, guid: 234227e42a05f243b9ead6c9bbae14e6, type: 3}
+  - {fileID: 2856106468209972275, guid: 6141233b613175df0b63452059596c4e, type: 3}
+  - {fileID: 5486477295524791460, guid: 7ce490e3bddc399e5bfd35a454a684a6, type: 3}
+  - {fileID: 1702017560981183538, guid: fd8080d8f693a286ea3f9810a1a82c2e, type: 3}
+  - {fileID: 7824529248980907345, guid: 07a426fe270ae609a9d596989fd5e1e8, type: 3}
+  - {fileID: 4967702370175777962, guid: 4d02e1f1a5013f9d9928365db8abb425, type: 3}
+  - {fileID: 4200752163360365431, guid: 616ae548f091994cca19a9c43d9cd885, type: 3}
+  - {fileID: 745393227403012844, guid: 4e6480c925e0cbdc68c70b7ad18fd9f1, type: 3}
+  - {fileID: 6355653221096311858, guid: af1b2e5a80f2f461cb7a7cd9a7799a26, type: 3}
+  - {fileID: 7201719641257882535, guid: d1dbdd1bb474c295392ee11d11fd1084, type: 3}
+  - {fileID: 8947209311038332790, guid: 8a5ffa62808e7f3eda8e469e87ebb8d8, type: 3}
+  - {fileID: 4685362006595806323, guid: b8994f833f92dec51b4df30f4ae744bd, type: 3}
+  - {fileID: 6757791512944138784, guid: 330a075ac80eb80938d1191b4756b3a2, type: 3}
 --- !u!114 &207308516
 MonoBehaviour:
   m_ObjectHideFlags: 0
